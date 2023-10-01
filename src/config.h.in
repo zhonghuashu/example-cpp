@@ -1,0 +1,6 @@
+#define APP_VERSION_MAJOR @example-cpp_VERSION_MAJOR@
+#define APP_VERSION_MINOR @example-cpp_VERSION_MINOR@
+#define APP_VERSION_PATCH @example-cpp_VERSION_PATCH@
+
+const char *GIT_REVISION = "@GIT_REVISION@";
+#cmakedefine USE_STRING_FORMAT

@@ -1,0 +1,87 @@
+{
+	"version": "2.0.0",
+    "options": {
+        "env": {
+            "DEVICE_REMOTE_SERVER": "${config:device.remoteServer}",
+            "DEVICE_REMOTE_DEBUG_PORT": "${config:device.remoteDebugPort}",
+            "DEVICE_REMOTE_USER": "${config:device.remoteUser}",
+            "DEVICE_REMOTE_PASSWORD": "${config:device.remotePassword}"
+        }
+    },
+	"tasks": [
+        {
+            "label": "Launch gdbserver",
+            "type": "shell",
+            "command": "./tools/expect/auto_gdb_launch.sh",
+            "args": [
+                "${config:device.remoteServer}",
+                "${config:device.remoteUser}",
+                "${config:device.remotePassword}",
+                "${config:device.remoteDebugPort}",
+                "${command:cmake.launchTargetFilename}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": [
+                "File transfer"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": ""
+                },
+                "background": {
+                    "beginsPattern": "Process .*",
+                    "endsPattern": "Listening on port .*"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "File transfer",
+            "type": "shell",
+            "command": "./tools/put.bash",
+            "args": [
+                "${command:cmake.launchTargetPath}",
+                "${config:device.remoteServer}",
+                "/usr/local/bin/${command:cmake.launchTargetFilename}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Kill launch tasks",
+            "type": "shell",
+            "command": "echo ${input:terminate}",
+            "problemMatcher": []
+        },
+        {
+            "label": "Telnet login",
+            "type": "shell",
+            "command": "./tools/expect/auto_telnet.sh",
+            "args": [
+                "${config:device.remoteServer}",
+                "${config:device.remoteUser}",
+                "${config:device.remotePassword}"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+          "id": "terminate",
+          "type": "command",
+          "command": "workbench.action.tasks.terminate",
+          "args": "terminateAll"
+        },
+    ]
+}

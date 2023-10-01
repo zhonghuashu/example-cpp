@@ -1,0 +1,5 @@
+Line1: add_library(
+Line2:     ut-usage
+Line3:     OBJECT
+Line4:     SalesItemTest.cpp
+Line5:     usage_cplus_test.cpp

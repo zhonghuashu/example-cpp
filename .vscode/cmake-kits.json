@@ -1,0 +1,13 @@
+[
+    {
+        "name": "x86_64",
+        "compilers": {
+            "C": "/usr/bin/gcc",
+            "CXX": "/usr/bin/g++"
+        }
+    },
+    {
+        "name": "arm",
+        "toolchainFile": "../cmake/arm-linux-gnueabihf-gcc.cmake"
+    }
+]
