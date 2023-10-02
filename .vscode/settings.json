@@ -95,13 +95,14 @@
         "param",
         "return"
       ],
-    "doxdocgen.generic.useGitUserEmail": true,
-    "doxdocgen.generic.useGitUserName": true,
+    "doxdocgen.generic.useGitUserEmail": false,
+    "doxdocgen.generic.useGitUserName": false,
     "doxdocgen.generic.boolReturnsTrueFalse": false,
     "doxdocgen.generic.returnTemplate": "@return ",
     "cmake.configureOnOpen": false,
     "cmake.buildDirectory": "${workspaceFolder}/build_${buildKit}",
     "cmake.generator": "Unix Makefiles",
     "cmake.useProjectStatusView": false,
-    "doxdocgen.generic.authorTag": "@author {author}"
+    "doxdocgen.generic.authorTag": "@author {author}",
+    "doxdocgen.generic.authorName": "Shu, Zhong Hua"
 }
