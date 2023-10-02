@@ -1,12 +1,13 @@
 example-cpp
 =================================
 # Introduction
-Sample code C/C++ building system for Linux:
+Example C/C++ code:
+- C/C++ programming under Linux / WSL environment.
+- CMake for cross-compiler under different target platform (x86 / ARM).
 - Common code style and naming convention definition.
 - SonarQube / SonarLint for static code check.
 - Doxygen for code comments and API documentation generation.
 - GoogleTest for unit test framework.
-- CMake for cross-compiler under different target platform (x86 / ARM).
 
 # Build for ARM Linux
 ```shell
