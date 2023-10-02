@@ -1,0 +1,18 @@
+# When "text" is set to "auto", its line endings are converted to LF on checkin automatically.
+# When the file has been committed with CRLF, no conversion is done.
+*     text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# Git will always convert line endings to LF on checkout
+*.txt text eol=lf
+*.c   text eol=lf
+*.cpp text eol=lf
+*.h   text eol=lf
+*.sh  text eol=lf
+*.py  text eol=lf
+
+# Git will understand that the files specified are not text,
+# and it should not try to change them.
+*.png binary
+*.jpg binary
+*.pcap binary
