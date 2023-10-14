@@ -4,7 +4,7 @@
     "device.remoteDebugPath": "/root/tools/gcc-linaro/gcc-linaro-7.3.1-2018.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gdb",
     "device.remoteUser": "root",
     "device.remotePassword": "password",
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build_x86_64/compile_commands.json",
     "testMate.cpp.test.executables": "./build/**/*{ut-, test,Test}*",
     "C_Cpp.vcFormat.space.pointerReferenceAlignment": "right",
     "files.associations": {
