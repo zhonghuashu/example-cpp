@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
+#include <linux/prctl.h>
 #include <unistd.h>
 #include <pthread.h>
 
@@ -19,9 +20,11 @@ std::string mMessage = "Hello World";
 
 void *threadFunction(void *arg)
 {
+    pthread_setname_np(pthread_self(), "thread/1");
+
     std::string ret = "Thank you for the CPU time";
     std::cout << "Thread function is running. Argument was: " << (char *)arg << "\n";
-    sleep(3);
+    sleep(30);
     mMessage += " Bye!";
 
     pthread_exit((void *)ret.c_str());

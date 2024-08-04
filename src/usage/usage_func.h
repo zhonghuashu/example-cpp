@@ -31,6 +31,11 @@ void usage_switch();
  */
 bool usage_ifElse();
 
+/**
+ * Example usage for macro definition.
+ */
+void usage_macro();
+
 #ifdef __cplusplus
 }
 #endif

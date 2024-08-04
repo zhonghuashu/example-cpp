@@ -12,6 +12,7 @@ bool usage_cmain()
 {
     usage_switch();
     usage_ifElse();
+    usage_macro();
 
     return true;
 }
@@ -56,4 +57,14 @@ bool usage_ifElse()
     }
 
     return true;
+}
+
+void usage_macro()
+{
+    printf("\n#### Usage: macro\n");
+    #define BASE_RT_PRIO 20
+    int prio = BASE_RT_PRIO + 1;
+
+    printf("priority: %d", prio);
+    printf("\n");
 }
