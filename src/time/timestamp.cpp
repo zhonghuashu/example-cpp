@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     ::printf("timeval: %d sec, %d us\n", (int) tv.tv_sec, (int) tv.tv_usec);
     ::printf("timeval: %d ms elapsed\n", (int)((tv.tv_sec * 1000 * 1000 + tv.tv_usec) / 1000));
 
-    // Use C++11 chrono lib.
+    // Use C++11 chrono lib (see https://zhuanlan.zhihu.com/p/559873639)
     std::cout << "system_clock::is_steady: " << std::boolalpha << system_clock::is_steady << std::endl;
     std::cout << "steady_clock::is_steady: " << std::boolalpha << steady_clock::is_steady << std::endl;
     std::cout << "high_resolution_clock::is_steady: " << std::boolalpha << high_resolution_clock::is_steady << std::endl;
