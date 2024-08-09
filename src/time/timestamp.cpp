@@ -11,6 +11,7 @@
 #include <iostream>
 #include <sys/time.h>
 #include <chrono>
+#include <time.h>
 
 using namespace std::chrono;
 
@@ -26,6 +27,17 @@ int main(int argc, char *argv[])
     ::gettimeofday(&tv, nullptr);
     ::printf("timeval: %d sec, %d us\n", (int) tv.tv_sec, (int) tv.tv_usec);
     ::printf("timeval: %d ms elapsed\n", (int)((tv.tv_sec * 1000 * 1000 + tv.tv_usec) / 1000));
+
+    // Use clock_gettime
+    timespec tpstart;
+    timespec tpend;
+    long timediff;
+
+    ::clock_gettime(CLOCK_MONOTONIC, &tpstart);
+    ::sleep(1);
+    ::clock_gettime(CLOCK_MONOTONIC, &tpend);
+    timediff = 1000 * 1000 * (tpend.tv_sec - tpstart.tv_sec) + (tpend.tv_nsec-tpstart.tv_nsec) / 1000;
+    ::printf("clock_gettime: %ld ms elapsed\n", timediff / 1000);
 
     // Use C++11 chrono lib (see https://zhuanlan.zhihu.com/p/559873639)
     std::cout << "system_clock::is_steady: " << std::boolalpha << system_clock::is_steady << std::endl;
