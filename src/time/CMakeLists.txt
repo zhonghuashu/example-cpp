@@ -34,3 +34,8 @@ add_executable(
     mssleep
     mssleep.cpp
 )
+
+add_executable(
+    timestamp
+    timestamp.cpp
+)
