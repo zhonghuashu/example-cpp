@@ -1,3 +1,9 @@
+# getopt
+add_executable(
+    getopt
+    getopt.cpp
+)
+
 # longopt
 add_executable(
     longopt

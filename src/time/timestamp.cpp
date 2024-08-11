@@ -5,6 +5,7 @@
  * @date 2024-08-08
  */
 
+#include <ctime>
 #include <stdio.h>
 #include <unistd.h>
 #include <string>
@@ -12,6 +13,7 @@
 #include <sys/time.h>
 #include <chrono>
 #include <time.h>
+#include <semaphore.h>
 
 using namespace std::chrono;
 
@@ -57,5 +59,37 @@ int main(int argc, char *argv[])
 
     duration<double> timeGap1 = system_clock::now() - system_clock::from_time_t(timeT);
     std::cout << "time diff 2: " << ::duration_cast<milliseconds>(timeGap1).count() << " ms\n";
+
+    // Use timed sem_wait sec
+    struct timespec ts;
+    sem_t sem;
+
+    ::sem_init(&sem, 0, 0);
+    ::clock_gettime(CLOCK_REALTIME, &ts);
+    ts.tv_sec += 1;
+
+    ::printf("Semaphore wait...\n");
+    ::sem_timedwait(&sem, &ts);
+    ::printf("Semaphore wait... timeout\n");
+    sem_destroy(&sem);
+
+    // Use timed sem_wait ms
+    sem_t sem2;
+    struct timespec timeout;
+    sem_init(&sem2, 0, 0);
+    timeout.tv_nsec += 100 * 1000 * 1000;
+    if (timeout.tv_nsec >= 1000000000)
+    {
+        timeout.tv_nsec -= 1000000000;
+        timeout.tv_sec += 1;
+    }
+
+    // 等待信号量
+    ::printf("Semaphore wait...\n");
+    sem_timedwait(&sem2, &timeout);
+    ::printf("Semaphore wait... timeout\n");
+    sem_destroy(&sem2);
+
+
 	return 0;
 }
