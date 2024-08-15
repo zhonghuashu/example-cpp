@@ -36,6 +36,8 @@ bool usage_ifElse();
  */
 void usage_macro();
 
+void usage_print();
+
 #ifdef __cplusplus
 }
 #endif

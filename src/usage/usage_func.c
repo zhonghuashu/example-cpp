@@ -13,6 +13,7 @@ bool usage_cmain()
     usage_switch();
     usage_ifElse();
     usage_macro();
+    usage_print();
 
     return true;
 }
@@ -66,5 +67,14 @@ void usage_macro()
     int prio = BASE_RT_PRIO + 1;
 
     printf("priority: %d", prio);
+    printf("\n");
+}
+
+void usage_print()
+{
+    double val = 10.0 / 3.0;
+    printf("\n#### Usage: print\n");
+    printf("%15s = %10d\n", "String", 10);
+    printf("%15s = %5.1f\n", "Double", val);
     printf("\n");
 }

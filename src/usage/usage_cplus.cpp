@@ -114,6 +114,7 @@ bool usage::useMain()
     usage::useRandom();
     usage::useUnion();
     usage::useDebug();
+    usage::useDouble();
 
     return true;
 }
@@ -858,4 +859,21 @@ void usage::useDebug()
 
     // Comment out because aborting unit test.
     // assert(word.size() > THRESHOLD);
+    cout << "\n";
+}
+
+void usage::useDouble()
+{
+    cout << "\n#### Usage: double\n";
+    double dval = 40.6;
+
+    if (dval > 50)
+    {
+        cout << "40.6 >= 50: true" << "\n";
+    }
+    else
+    {
+        cout << "40.6 >= 50: false" << "\n";
+    }
+    cout << "\n";
 }

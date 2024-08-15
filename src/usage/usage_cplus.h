@@ -172,7 +172,14 @@ void useUnion();
  */
 void useDebug();
 
+/**
+ * Example usage for double operation.
+ */
+void useDouble();
+
 }
+
+
 
 #endif
 
