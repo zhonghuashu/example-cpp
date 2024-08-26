@@ -56,9 +56,13 @@ int main(int argc, char *argv[])
     std::time_t timeT = system_clock::to_time_t(system_clock::now());
     std::cout << "gm time: " << ::asctime(::gmtime(&timeT));
     std::cout << "local time: " << ::asctime(::localtime(&timeT));
+    tm* currTime = ::localtime(&timeT);
+    ::printf("Current time: %04d-%02d-%02d %02d:%02d:%02d\n", currTime->tm_year + 1900, currTime->tm_mon + 1, currTime->tm_mday,
+            currTime->tm_hour, currTime->tm_min, currTime->tm_sec);
 
     duration<double> timeGap1 = system_clock::now() - system_clock::from_time_t(timeT);
     std::cout << "time diff 2: " << ::duration_cast<milliseconds>(timeGap1).count() << " ms\n";
+
 
     // Use timed sem_wait sec
     struct timespec ts;

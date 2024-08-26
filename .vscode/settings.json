@@ -104,5 +104,8 @@
     "cmake.generator": "Unix Makefiles",
     "cmake.useProjectStatusView": false,
     "doxdocgen.generic.authorTag": "@author {author}",
-    "doxdocgen.generic.authorName": "Shu, Zhong Hua"
+    "doxdocgen.generic.authorName": "Shu, Zhong Hua",
+    "clangd.arguments": [
+      "--compile-commands-dir=build_x86_64"
+    ]
 }

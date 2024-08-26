@@ -5,6 +5,8 @@
  * @date 2023-04-20
  */
 
+#include <asm-generic/socket.h>
+#include <cstdio>
 #include <ctime>
 #include <cstring>
 #include <csignal>
@@ -64,6 +66,10 @@ int main(int argc, char **argv)
     sockaddr_in cliaddr, servaddr;
     tcpip::Sigfunc *sigfunc;
     const int on = 1;
+    int recvbuf;
+    int recvBufLen = sizeof(recvbuf);
+    int sendbuf;
+    int sendBufLen = sizeof(sendbuf);
 
     if ((listenfd = ::socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {
@@ -74,6 +80,20 @@ int main(int argc, char **argv)
     {
         std::cout << "Set socketopt error\n";
     }
+
+    if (::getsockopt(listenfd, SOL_SOCKET, SO_RCVBUF, &recvbuf, (socklen_t *)&recvBufLen) < 0)
+    {
+        perror("Get socket opt error");
+    }
+    // Receive buffer size: 131K (= default size in cat /proc/sys/net/ipv4/tcp_rmem).
+    ::printf("TCP receive buffer size: %d\n", recvbuf);
+
+    if (::getsockopt(listenfd, SOL_SOCKET, SO_SNDBUF, &sendbuf, (socklen_t *)&sendBufLen) < 0)
+    {
+        perror("Get socket opt error");
+    }
+    // TCP send buffer size: 16K (= default size in cat /proc/sys/net/ipv4/tcp_wmem).
+    ::printf("TCP send buffer size: %d\n", sendbuf);
 
     ::memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
