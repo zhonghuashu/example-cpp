@@ -13,3 +13,19 @@ target_include_directories(
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+add_executable(
+    timer_test
+    timer_test.cpp
+)
+
+target_link_libraries(
+    timer_test
+    PRIVATE
+)
+
+target_include_directories(
+    timer_test
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
