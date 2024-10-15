@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
     // Use timed sem_wait ms
     sem_t sem2;
     struct timespec timeout;
-    sem_init(&sem2, 0, 0);
+    ::sem_init(&sem2, 0, 0);
     timeout.tv_nsec += 100 * 1000 * 1000;
     if (timeout.tv_nsec >= 1000000000)
     {
@@ -90,9 +90,9 @@ int main(int argc, char *argv[])
 
     // 等待信号量
     ::printf("Semaphore wait...\n");
-    sem_timedwait(&sem2, &timeout);
+    ::sem_timedwait(&sem2, &timeout);
     ::printf("Semaphore wait... timeout\n");
-    sem_destroy(&sem2);
+    ::sem_destroy(&sem2);
 
 
 	return 0;

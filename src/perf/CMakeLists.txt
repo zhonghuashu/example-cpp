@@ -22,6 +22,7 @@ add_executable(
 target_link_libraries(
     timer_test
     PRIVATE
+    rt
 )
 
 target_include_directories(

@@ -35,7 +35,7 @@ target_link_libraries(
     thread_func
 )
 
-# threadsimple
+# thread_simple
 add_executable(
     thread_simple
     thread_simple.cpp
@@ -53,6 +53,24 @@ target_include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+# thread_detach
+add_executable(
+    thread_detach
+    thread_detach.cpp
+)
+
+target_link_libraries(
+    thread_detach
+    PRIVATE
+    pthread
+)
+
+target_include_directories(
+    thread_detach
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 install(TARGETS thread_func DESTINATION lib)
 install(TARGETS thread_simple DESTINATION bin)
 install(TARGETS thread_main DESTINATION bin)
+install(TARGETS thread_detach DESTINATION bin)

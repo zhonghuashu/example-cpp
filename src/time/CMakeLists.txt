@@ -39,3 +39,8 @@ add_executable(
     timestamp
     timestamp.cpp
 )
+target_link_libraries(
+    timestamp
+    PRIVATE
+    pthread
+)
