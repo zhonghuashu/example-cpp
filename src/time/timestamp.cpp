@@ -43,7 +43,6 @@ int main(int argc, char *argv[])
 	struct timeval tv;
     ::gettimeofday(&tv, nullptr);
     ::printf("gettimeofday: timeval: %d sec, %d us\n", (int) tv.tv_sec, (int) tv.tv_usec);
-    ::printf("gettimeofday: timeval: %d ms elapsed\n", (int)((tv.tv_sec * 1000 * 1000 + tv.tv_usec) / 1000));
     ::localtime_r(&tv.tv_sec, &currTime);
     ::printf("gettimeofday: local: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec, tv.tv_usec / 1000);
 
@@ -52,28 +51,31 @@ int main(int argc, char *argv[])
     /*
     Use clock_gettime -- timer.h from C standard lib.
     - Posix High resolution time up to nanoseconds (ns)
-    - CLOCK_REALTIME: Changed as Linux system time
-    - CLOCK_MONOTONIC: Not changed as Linux system time
+    - CLOCK_REALTIME: Current Linux system time, changed by NTP.
+    - CLOCK_MONOTONIC: Absolute elapsed time, not changed as Linux system time (e.g., NTP)
     */
     timespec tpstart;
     timespec tpend;
     long timediff;
 
-    // clock_gettime: local: 2024-10-20 14:59:53.942
-    ::clock_gettime(CLOCK_REALTIME, &tpstart);
-    ::localtime_r(&tpstart.tv_sec, &currTime);
-    ::printf("clock_gettime: local: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec, tpstart.tv_nsec / 1000 / 1000);
-
     // clock_gettime: local: 1970-01-01 10:59:13.523
     ::clock_gettime(CLOCK_MONOTONIC, &tpstart);
     ::localtime_r(&tpstart.tv_sec, &currTime);
-    ::printf("clock_gettime: local: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec, tpstart.tv_nsec / 1000 / 1000);
-
-    ::clock_gettime(CLOCK_MONOTONIC, &tpstart);
+    ::printf("clock_gettime: CLOCK_MONOTONIC: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec, tpstart.tv_nsec / 1000 / 1000);
     ::sleep(1);
     ::clock_gettime(CLOCK_MONOTONIC, &tpend);
     timediff = 1000 * 1000 * (tpend.tv_sec - tpstart.tv_sec) + (tpend.tv_nsec-tpstart.tv_nsec) / 1000;
-    ::printf("clock_gettime: %ld ms elapsed\n", timediff / 1000);
+    ::printf("clock_gettime: CLOCK_MONOTONIC: %ld ms elapsed\n", timediff / 1000);
+
+    // clock_gettime: local: 2024-10-20 14:59:53.942
+    ::clock_gettime(CLOCK_REALTIME, &tpstart);
+    ::localtime_r(&tpstart.tv_sec, &currTime);
+    ::printf("clock_gettime: CLOCK_REALTIME: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec, tpstart.tv_nsec / 1000 / 1000);
+
+    ::sleep(1);
+    ::clock_gettime(CLOCK_REALTIME, &tpend);
+    timediff = 1000 * 1000 * (tpend.tv_sec - tpstart.tv_sec) + (tpend.tv_nsec-tpstart.tv_nsec) / 1000;
+    ::printf("clock_gettime: CLOCK_REALTIME: %ld ms elapsed\n", timediff / 1000);
 
     // Use clock() / time.h function to calculate program running ticks.
     clock_t startClock;
