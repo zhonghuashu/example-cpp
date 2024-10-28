@@ -371,7 +371,15 @@ void usage::useClass()
     };
     SalesData trans;
     trans.bookNo = "C++ Primer";
-    cout << "Struct SalesData: [" << trans.bookNo << ", " << trans.unitsSold << ", " << trans.revenue << sizeof(SalesData) << "]\n";
+    cout << "Struct SalesData: [" << trans.bookNo << ", " << trans.unitsSold << ", " << trans.revenue << ", " << sizeof(SalesData) << "]\n";
+
+
+    // Use struct initialization list.
+    SalesData trans2 = { "C++ Primer 2", 0, 0.0 };
+    cout << "Struct SalesData2: [" << trans2.bookNo << ", " << trans2.unitsSold << ", " << trans2.revenue << "]\n";
+
+    SalesData trans3 = { .bookNo = "C++ Primer 3", .unitsSold = 0, .revenue = 0};
+    cout << "Struct SalesData2: [" << trans3.bookNo << ", " << trans3.unitsSold << ", " << trans3.revenue << "]\n";
 
     // Use class object.
     SalesItem item("book 1", 1, 20);
