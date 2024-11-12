@@ -14,6 +14,7 @@ bool usage_cmain()
     usage_ifElse();
     usage_macro();
     usage_print();
+    usage_integer();
 
     return true;
 }
@@ -77,4 +78,18 @@ void usage_print()
     printf("%15s = %10d\n", "String", 10);
     printf("%15s = %5.1f\n", "Double", val);
     printf("\n");
+}
+
+void usage_integer()
+{
+    printf("\n#### Usage: integer\n");
+    unsigned char ival = 250;
+    printf("ival = ");
+    for (int i = 0; i < 10; i++)
+    {
+        // Check if round to 0 after 255.
+        ival++;
+        printf("%d ", ival);
+    }
+    printf("\n\n");
 }

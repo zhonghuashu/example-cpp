@@ -794,6 +794,22 @@ void usage::useBitset()
     cout << "Bitset: " << bitvec.any() << ", " << bitvec.count() << "\n";
     bitvec.set(0, 0);
     cout << "Bitset: " << bitvec.any() << ", " << bitvec.count() << "\n";
+
+    // Version using bitset library.
+    bitvec.set(0, 1);
+    cout << "Bitset: 0000 0001 = " << bitvec.to_ulong() << "\n";
+    bitvec.reset(0);
+    bitvec.set(7, 1);
+    cout << "Bitset: 1000 0000 = " << bitvec.to_ulong() << "\n";
+
+    // Equivalent version using bitwise operations.
+    unsigned long stVal = 0;
+    stVal |= 1UL << 0;
+    cout << "Bitset: 0000 0001 = " << stVal << "\n";
+    stVal |= 1UL << 0;      // set bit0 = 1
+    stVal &= ~(1UL << 0);   // reset 0
+    stVal |= 1UL << 7;      // set bit7 = 1
+    cout << "Bitset: 1000 0000 = " << stVal << "\n";
 }
 
 void usage::useRegex()
