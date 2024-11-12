@@ -26,6 +26,8 @@
 #include <random>
 #include <cassert>
 #include <cstdio>
+#include <cstring>
+
 #include <unistd.h>
 #include "config.h"
 

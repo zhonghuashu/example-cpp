@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     std::time_t timeStart = system_clock::to_time_t(start);
     ::localtime_r(&timeStart, &currTime);
     ::printf("chrono: start: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec,
-            (::duration_cast<milliseconds>(start.time_since_epoch())).count() % 1000);
+            (long)((::duration_cast<milliseconds>(start.time_since_epoch())).count() % 1000));
     ::sleep(1);
 
     system_clock::time_point end = system_clock::now();
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
     std::cout << "chrono: local time: " << ::asctime(::localtime(&timeEnd));
     ::localtime_r(&timeEnd, &currTime);
     ::printf("chrono: end: %04d-%02d-%02d %02d:%02d:%02d.%03ld\n", currTime.tm_year + 1900, currTime.tm_mon + 1, currTime.tm_mday, currTime.tm_hour, currTime.tm_min, currTime.tm_sec,
-            (::duration_cast<milliseconds>(end.time_since_epoch())).count() % 1000);
+            (long) ((::duration_cast<milliseconds>(end.time_since_epoch())).count() % 1000));
 
     duration<double> timeGap2 = system_clock::now() - system_clock::from_time_t(timeEnd);
     std::cout << "chrono: time diff 2: " << ::duration_cast<milliseconds>(timeGap2).count() << " ms\n";
