@@ -10,6 +10,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <array>
 
 namespace usage {
 
@@ -158,6 +159,8 @@ public:
      * Initialize in cpp class.
      */
     static double someStaticMember3;
+
+    static std::array<std::string, 10> m_testArray;
 
 private:
     std::string m_bookNo;

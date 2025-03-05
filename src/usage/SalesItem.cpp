@@ -14,8 +14,11 @@ namespace usage {
 
 double SalesItem::someStaticMember3 = 3.0;
 
+std::array<std::string, 10> SalesItem::m_testArray;
+
 SalesItem::SalesItem(std::istream &is)
 {
+    m_testArray.fill("");
     read(is, *this);
 }
 
