@@ -80,7 +80,10 @@
       "codecvt": "cpp",
       "csignal": "cpp",
       "unpipc.h": "c",
-      "thread_func.h": "c"
+      "thread_func.h": "c",
+      "charconv": "cpp",
+      "format": "cpp",
+      "span": "cpp"
     },
     "cSpell.diagnosticLevel": "Hint",
     "doxdocgen.file.fileOrder": [

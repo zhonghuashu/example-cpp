@@ -27,6 +27,7 @@
 #include <cassert>
 #include <cstdio>
 #include <cstring>
+#include <sstream>
 
 #include <unistd.h>
 #include "config.h"
@@ -195,6 +196,12 @@ void usage::useString()
     const string sval = std::to_string(ival);
     const float fval = std::stof(sval);
     cout << "conversion: " << ival << ", " << sval << ", " << fval << "\n";
+    const float fval2 = 12.3f;
+    cout << "conversion: float std::to_string: " << std::to_string(fval2) << "\n";
+    std::ostringstream oss;
+    oss << fval2;
+    cout << "conversion: float std::ostringstream: " << oss.str() << "\n";
+
     string s2 = "hello";
     s2 += std::to_string(::getpid());
     cout << "s2: " << s2 << "\n";

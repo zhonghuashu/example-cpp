@@ -41,6 +41,12 @@ int main(int argc, char *argv[])
         {nullptr,       0, nullptr, 0}
     };
 
+    for (int i = 0; i < argc; i++)
+    {
+        ::printf("%s ", argv[i]);
+    }
+    printf("\n");
+
     while ((opt = ::getopt_long(argc, argv, ":if:lr", longopts, nullptr)) != -1)
     {
         switch (opt)
