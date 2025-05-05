@@ -10,6 +10,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <unistd.h>
+#include <sstream>
 
 #include <getopt.h>
 
@@ -31,6 +32,7 @@ void printUsage()
 int main(int argc, char *argv[])
 {
     int opt;
+    std::ostringstream cmdLine;
     struct option longopts[] =
     {
         {"initialize",  0, nullptr, 'i'},
@@ -43,9 +45,10 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < argc; i++)
     {
-        ::printf("%s ", argv[i]);
+        cmdLine << argv[i] << " ";
     }
-    printf("\n");
+    cmdLine << "\n";
+    printf("%s\n", cmdLine.str().c_str());
 
     while ((opt = ::getopt_long(argc, argv, ":if:lr", longopts, nullptr)) != -1)
     {
