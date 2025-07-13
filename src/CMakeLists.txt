@@ -1,4 +1,5 @@
 add_subdirectory(math_func)
+add_subdirectory(pattern)
 add_subdirectory(usage)
 add_subdirectory(thread)
 add_subdirectory(tcpip)
