@@ -57,5 +57,7 @@ cmake ..
 ```
 
 # VSCode
-- Debug code via select menu `View > Command Paletter > CMake: Debug`
+- Debug code
+  - Select CMake panel: Debug target
+  - Select Debug panel: Launch gdb
 - Start unit test via select menu `View > Testing`

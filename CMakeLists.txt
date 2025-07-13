@@ -16,7 +16,8 @@ if(${CMAKE_CROSSCOMPILING})
 else()
     message(STATUS "Cross compiling on host")
     set(CMAKE_INSTALL_PREFIX "./install/x86_64")
-    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_INSTALL_PREFIX} "./rootfs/x86-host" "/root/develop/x86-host-rootfs" "/root/develop/x86-host-extra")
+    # installed via: apt install libfmt-dev
+    # set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${CMAKE_INSTALL_PREFIX} "./rootfs/x86-host" "/root/develop/x86-host-rootfs" "/root/develop/x86-host-extra")
 endif()
 
 # Configure header file.

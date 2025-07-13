@@ -65,3 +65,20 @@ target_include_directories(
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+# config_file
+add_executable(
+    config_file
+    config_file.cpp
+)
+
+target_link_libraries(
+    config_file
+    PRIVATE
+)
+
+target_include_directories(
+    config_file
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)

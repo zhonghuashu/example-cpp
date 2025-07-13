@@ -1,0 +1,6 @@
+#
+# Example config properties file.
+#
+key1 = "hello"
+key2="world"
+key3=1234
