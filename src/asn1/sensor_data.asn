@@ -1,0 +1,27 @@
+-- sensor_data.asn
+-- 这是一个用于传输传感器数据的ASN.1模式文件
+
+SensorModule DEFINITIONS EXPLICIT TAGS ::= BEGIN
+
+  -- 定义一个枚举类型来表示测量单位
+  MeasurementUnit ::= ENUMERATED {
+    celsius (0),
+    fahrenheit (1),
+    kelvin (2),
+    pascal (3),
+    percent (4)
+  }
+
+  -- 定义传感器读数的结构
+  SensorReading ::= SEQUENCE {
+    sensorId    INTEGER (0..MAX),  -- 传感器唯一标识符
+    timestamp   GeneralizedTime,   -- 测量时间 (UTC)
+    value       OCTET STRING,      -- 将 REAL 替换为 OCTET STRING
+    unit        MeasurementUnit,   -- 测量单位
+    description OCTET STRING OPTIONAL -- 可选的描述信息
+  }
+
+  -- 定义一个包含多个传感器读数的列表
+  SensorReadingsList ::= SEQUENCE OF SensorReading
+
+END

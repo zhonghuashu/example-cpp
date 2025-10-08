@@ -1,0 +1,5 @@
+MySchema DEFINITIONS EXPLICIT TAGS ::= BEGIN
+  MySeq ::= SEQUENCE {
+    value INTEGER
+  }
+END
