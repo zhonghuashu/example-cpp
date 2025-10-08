@@ -15,8 +15,7 @@ void busyCpu()
 
     ::clock_gettime(CLOCK_MONOTONIC, &tpstart);
 
-    volatile long long i;
-    for (i = 0; i < 9000; ++i)
+    for (long long i = 0; i < 9000; ++i)
     {
         // Loop 3000: 95 us / CPU 25 %
     }
