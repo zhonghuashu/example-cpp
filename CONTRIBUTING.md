@@ -2,12 +2,12 @@
 
 Thank you for your interest in contributing to `example-cpp`! To ensure code quality, maintainability, and a welcoming community, please follow these guidelines:
 
-## Getting Started
+## Getting started
 - Fork the repository and create a feature branch from `main`.
 - Use descriptive branch names (e.g., `feature/thread-optim`, `defect/math-divzero`).
 - Keep your changes focused and atomic—one feature or fix per pull request.
 
-## Coding Style
+## Coding style
 - **Naming:**
   - Use `camelCase` for variables and function names (e.g., `myVariable`, `calculateSum`).
   - Use `PascalCase` for class/struct names (e.g., `MyClass`).
@@ -41,13 +41,8 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
   // Header file content
   #endif // MODULE_FILEIO_H
   ```
-
-## Adding New Modules
-- Place new source files in the appropriate `src/` subdirectory.
-- Update the relevant `CMakeLists.txt` to include new files.
-- Follow the naming and style conventions above.
-
-## Adding New Modules
+- For Markdown files, headings should use sentence case: only the first letter of the first word is capitalized, and the rest are lowercase (e.g., # Module usage, not # Module Usage or # MODULE USAGE).
+## Adding new modules
 - Place new source files in the appropriate `src/` subdirectory.
 - Update the relevant `CMakeLists.txt` to include new files.
 - Follow the naming and style conventions above.
@@ -60,13 +55,13 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
   target_link_libraries(your_target PRIVATE tasn1)
   ```
 
-## Adding Code
+## Adding code
 - Place new modules in the appropriate `src/` subdirectory
 - Update the relevant `CMakeLists.txt` to include new files
 - Add or update unit tests in `test/` for all new features and bug fixes
 - Document public APIs and error handling in comments
 
-## Build Instructions
+## Build instructions
 - Create a build directory (e.g., `build_x86_64`):
   ```bash
   mkdir -p build_x86_64
@@ -80,7 +75,7 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
 - Place unit tests in `test/`.
 - Use CMake to add and build test targets.
 
-## Pull Requests
+## Pull requests
 - Ensure your code builds and passes all tests (`make` and `ctest`)
 - Run static analysis or linters if available
 - Write a clear, concise PR description (what, why, how tested)

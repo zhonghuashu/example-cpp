@@ -5,7 +5,7 @@
 `example-cpp` is a modular, cross-platform C/C++ project targeting both x86_64 and ARM. It uses CMake for build management and is organized for clarity, portability, and maintainability.
 
 
-## Project Overview
+## Project overview
 - **Type:** C/C++ multi-target project (x86_64, ARM)
 - **Build System:** CMake
 - **Structure:**
@@ -15,7 +15,7 @@
   - `cmake/` — Toolchain and CMake helper scripts
 
 
-## Directory Structure
+## Directory structure
 
 ```
 root/
@@ -33,14 +33,14 @@ root/
 ```
 
 
-## Build System
+## Build system
 - **CMake** is used for configuration and build.
 - Out-of-source builds (e.g., `build_x86_64/`, `build_arm/`).
 - Toolchain files in `cmake/` enable cross-compilation.
 - Each module and test has its own `CMakeLists.txt`.
 
 
-## Module Design
+## Module design
 - **Separation of Concerns:** Each module (e.g., `fileio`, `math_func`, `thread`) is self-contained, with clear interfaces and minimal dependencies.
 - **Naming Conventions:**
   - `camelCase` for variables/functions
@@ -51,7 +51,7 @@ root/
 - **Error Handling:** Consistent error codes or exceptions, documented per module.
 
 
-## Example: Math Module
+## Example: math module
 - Located in `src/math_func/`
 - Provides reusable math utilities
 - Unit tests in `test/math_func/`
@@ -62,7 +62,7 @@ root/
 - Designed for portability and POSIX compliance.
 
 
-## ASN.1 Support
+## Asn.1 support
 - ASN.1 encoding/decoding via `libtasn1` in `src/asn1/`
 - Example: `asn1_example.cpp` demonstrates BER encoding/decoding
 - CMake links with `tasn1` as needed
@@ -73,13 +73,13 @@ root/
 - CMake integrates test targets for automated builds
 
 
-## Extensibility & Portability
+## Extensibility & portability
 - New modules can be added by creating a subdirectory in `src/` and updating CMake
 - Platform-specific code is isolated and documented
 - Code style and structure are enforced via `copilot-instructions.md`
 
 
-## Architecture Diagram
+## Architecture diagram
 
 ```
 +-------------------+

@@ -1,22 +1,22 @@
 # PRODUCT.md
 
-## Product Overview
+## Product overview
 
 `example-cpp` is a modular, cross-platform C/C++ toolkit designed for system-level programming, rapid prototyping, and educational purposes. It provides reusable components for file I/O, math, threading, networking, inter-process communication, and more, supporting both x86_64 and ARM platforms.
 
 ---
 
-## Key Features
+## Key features
 
-### 1. File I/O Utilities
+### 1. File I/O utilities
 - Read/write files, directories, and device nodes
 - Example: Efficient file copying, directory traversal, and file attribute queries
 
-### 2. Math Functions
+### 2. Math functions
 - Arithmetic, statistics, and utility math operations
 - Example: Custom math library for embedded or performance-critical use
 
-### 3. Threading & Concurrency
+### 3. Threading & concurrency
 - Thread creation, synchronization (mutex, condition variable), and thread pools
 - Example: Producer-consumer, detached threads, and thread-safe patterns
 
@@ -24,25 +24,25 @@
 - TCP/UDP client/server, UNIX domain sockets, pipes, message queues, shared memory
 - Example: Simple echo server, IPC demo, and networked data transfer
 
-### 5. Time & Performance
+### 5. Time & performance
 - High-resolution timers, sleep utilities, and performance measurement
 - Example: Timer test, nanosleep, and benchmarking tools
 
-### 6. Usage Examples
+### 6. Usage examples
 - Ready-to-run sample programs for each module
 - Example: `usage_cplus.cpp` demonstrates idiomatic C++ usage
 
-### 7. ASN.1 Encoding/Decoding
+### 7. Asn.1 encoding/decoding
 - ASN.1 BER encoding/decoding using `libtasn1`
 - Example: `asn1_example.cpp` for protocol or data serialization
 
-### 8. Unit Testing
+### 8. Unit testing
 - Each module includes unit tests for correctness and regression
 - Example: Automated test suite in `test/` directory
 
 ---
 
-## Typical Use Cases
+## Typical use cases
 
 - **System Programming:** Rapidly build and test system-level utilities and daemons.
 - **Embedded Development:** Cross-compile for ARM, use math/thread/file/network modules on resource-constrained devices.
@@ -52,7 +52,7 @@
 
 ---
 
-## User Workflow
+## User workflow
 
 1. **Build the Project:**
    - Configure with CMake for your target platform
@@ -74,7 +74,7 @@
 
 ---
 
-## Example Product Map
+## Example product map
 
 | Module         | Functionality Example           | CLI/Program         |
 | -------------- | ------------------------------ | ------------------- |
@@ -87,7 +87,7 @@
 
 ---
 
-## Limitations & Target Audience
+## Limitations & target audience
 
 - Not a full application framework; focused on reusable, composable building blocks
 - Intended for developers, students, and engineers needing portable C/C++ utilities
