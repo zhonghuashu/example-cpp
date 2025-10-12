@@ -41,7 +41,8 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
   // Header file content
   #endif // MODULE_FILEIO_H
   ```
-- For Markdown files, headings should use sentence case: only the first letter of the first word is capitalized, and the rest are lowercase (e.g., # Module usage, not # Module Usage or # MODULE USAGE).
+- **Sentence case:** Markdown files and code comments should use sentence case: only the first letter of the first word is capitalized, and the rest are lowercase (e.g., Use "Module usage", not "Module Usage" or "MODULE USAGE").
+
 ## Adding new modules
 - Place new source files in the appropriate `src/` subdirectory.
 - Update the relevant `CMakeLists.txt` to include new files.

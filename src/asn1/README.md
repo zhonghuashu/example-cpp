@@ -1,7 +1,7 @@
 ## ASN.1 syntax file
 - Checks asn1 syntax file
 ```shell
-# 使用 代码asn1Parser 工具生成 C
+# Use code asn1parser tool to generate c
 apt install libtasn1-bin
 
 cd build_x86_64
