@@ -16,13 +16,13 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
   - Prefix with a module abbreviation (e.g., `module_functionName`) for C exported function name or global variable, e.g., `i2c_sendBuffer()`, `int i2c_busStatus()`.
   - Prefix `m_` for C++ private class member (e.g., `m_someClassMember`).
   - Prefix `m` for C file scope variable (e.g., `mSomeStaticVar`).
-- **File Names:** Use lowercase with underscores (e.g., `math_func.cpp`).
+- **File names:** Use lowercase with underscores (e.g., `math_func.cpp`).
 - **Indentation:** 4 spaces per level.
 - **Comments:**
   - Use English for code comments and documentation.
   - Use doxygen javadoc style for function/class documentation.
   - Begin comment text with an uppercase letter, end comment text with a period.
-- **Error Handling:**
+- **Error handling:**
   - Use consistent error handling strategies (e.g., return codes, exceptions).
   - Document error cases and recovery strategies.
 - **Namespace**:
@@ -41,7 +41,7 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
   // Header file content
   #endif // MODULE_FILEIO_H
   ```
-- **Sentence case:** Markdown files and code comments should use sentence case: only the first letter of the first word is capitalized, and the rest are lowercase (e.g., Use "Module usage", not "Module Usage" or "MODULE USAGE").
+- **Title case (First letter only)**: All headings and section titles in Markdown files and documentation should use title case with only the first letter capitalized and the rest lowercase (e.g., use "Project general coding standards", not "Project General Coding Standards" or "PROJECT GENERAL CODING STANDARDS").
 
 ## Adding new modules
 - Place new source files in the appropriate `src/` subdirectory.
