@@ -9,6 +9,9 @@ Example C/C++ code:
 - Doxygen for code comments and API documentation generation.
 - GoogleTest for unit test framework.
 
+Project-wide coding styles and guidelines defined in customer [instructions file](./.github/copilot-instructions.md).
+
+
 # Build for ARM Linux
 ```shell
 mkdir build_arm && cd build_arm
