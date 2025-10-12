@@ -9,8 +9,12 @@ Example C/C++ code:
 - Doxygen for code comments and API documentation generation.
 - GoogleTest for unit test framework.
 
-Project-wide coding styles and guidelines defined in customer [instructions file](./.github/copilot-instructions.md).
+Contribute code in the project should adhere to the standards and conventions outlined here:
+- [Product Vision and Goals](../PRODUCT.md): Understand the high-level vision and objectives of the product to ensure alignment with business goals.
+- [System Architecture and Design Principles](../ARCHITECTURE.md): Overall system architecture, design patterns, and design principles that guide the development process.
+- [Contributing Guidelines](../CONTRIBUTING.md): Overview of the project's contributing guidelines and collaboration practices.
 
+Suggest to update these documents if you find any incomplete or conflicting information during your work.
 
 # Build for ARM Linux
 ```shell
