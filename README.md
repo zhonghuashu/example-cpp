@@ -9,6 +9,9 @@ Example C/C++ code:
 - Doxygen for code comments and API documentation generation.
 - GoogleTest for unit test framework.
 
+Reference book:
+- Beginning Linux Programming 4th Edition
+
 Contribute code in the project should adhere to the standards and conventions outlined here:
 - [Product vision and goals](./PRODUCT.md): Understand the high-level vision and objectives of the product to ensure alignment with business goals.
 - [System architecture and design Principles](./ARCHITECTURE.md): Overall system architecture, design patterns, and design principles that guide the development process.
