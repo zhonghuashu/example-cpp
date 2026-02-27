@@ -31,7 +31,7 @@ Thank you for your interest in contributing to `example-cpp`! To ensure code qua
 - **Open braces**: Place the opening brace `{` on the new line for functions and control structures.
 - **Pointer reference**: Place pointer reference at right position (e.g., `int *ptr;`).
 - **C++ language standard:**
-  - C++11 is recommended to use in the new code, e.g., `nullptr`, `std::unique_ptr`, `std::make_shared`, lambda, range-based for loop, etc.
+  - C++11 is recommended to use in the new code, e.g., `nullptr`, `std::unique_ptr`, `std::make_shared`, range-based for loop, etc.
   - `auto` is acceptable but not overused.
   - Prefer `nullptr` over `NULL` or `0` for pointers.
 - Use header file guard in C/C++:
